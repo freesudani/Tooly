@@ -28,7 +28,9 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
   },
   map: {
-    height: "25rem",
+    width: "100%",
+    maxWidth: "42rem",
+    height: "auto",
   },
 }));
 

@@ -17,3 +17,15 @@ export const lineVariant = {
     transition: { duration: 2, transition: "ease-in" },
   },
 };
+
+export const tickVariant = {
+  hidden: {
+    opacity: 0,
+    pathLength: 0,
+  },
+  visible: {
+    opacity: 1,
+    pathLength: 1,
+    transition: { duration: 0.8, ease: "easeInOut" },
+  },
+};
