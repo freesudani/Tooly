@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles/makeStyles";
 import { motion } from "framer-motion";
+import { useTheme, useMediaQuery } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
   whyus: {
@@ -10,6 +11,15 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-around",
     alignItems: "center",
     background: theme.palette.primary.main,
+    [theme.breakpoints.down("md")]: {
+      height: "120vh",
+      flexWrap: "wrap",
+      paddingRight: "5rem",
+      paddingLeft: "5rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      height: "195vh",
+    },
   },
 
   box: {
@@ -17,6 +27,13 @@ const useStyles = makeStyles((theme) => ({
     width: "16rem",
     textAlign: "center",
     marginTop: "5rem",
+    [theme.breakpoints.down("md")]: {
+      marginTop: "2rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "1rem",
+      height: "15rem",
+    },
   },
   icon: {
     borderRadius: "50%",
@@ -32,6 +49,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Whyus = () => {
   const classes = useStyles();
+  const theme = useTheme();
+  const MQmd = useMediaQuery(theme.breakpoints.down("md")); //900px
+
   return (
     <Box className={classes.whyus}>
       <Box className={classes.box}>
@@ -52,10 +72,14 @@ const Whyus = () => {
             <path d="M9 21h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.58 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2zM9 9l4.34-4.34L12 10h9v2l-3 7H9V9zM1 9h5v12H1z" />
           </motion.svg>
         </Box>
-        <Typography variant="h5" color="#fff" gutterBottom>
+        <Typography variant={MQmd ? "h6" : "h5"} color="#fff" gutterBottom>
           MAINTAINABLE SERVICE
         </Typography>
-        <Typography variant="body1" color="#fff" gutterBottom>
+        <Typography
+          variant={MQmd ? "body2" : "body1"}
+          color="#fff"
+          gutterBottom
+        >
           No task is too small and our rates are competitive.
         </Typography>
       </Box>
@@ -76,10 +100,14 @@ const Whyus = () => {
             <path d="M22,7h-9v2h9V7z M22,15h-9v2h9V15z M5.54,11L2,7.46l1.41-1.41l2.12,2.12l4.24-4.24l1.41,1.41L5.54,11z M5.54,19L2,15.46 l1.41-1.41l2.12,2.12l4.24-4.24l1.41,1.41L5.54,19z" />
           </motion.svg>
         </Box>
-        <Typography variant="h5" color="#fff" gutterBottom>
+        <Typography variant={MQmd ? "h6" : "h5"} color="#fff" gutterBottom>
           SAFETY FIRST
         </Typography>
-        <Typography variant="body1" color="#fff" gutterBottom>
+        <Typography
+          variant={MQmd ? "body2" : "body1"}
+          color="#fff"
+          gutterBottom
+        >
           We are covered by the general contractors insurance.
         </Typography>
       </Box>
@@ -103,10 +131,14 @@ const Whyus = () => {
             <path d="M18,11.03C17.52,8.18,15.04,6,12.05,6c-3.03,0-6.29,2.51-6.03,6.45c2.47-1.01,4.33-3.21,4.86-5.89 C12.19,9.19,14.88,11,18,11.03z" />
           </motion.svg>
         </Box>
-        <Typography variant="h5" color="#fff" gutterBottom>
+        <Typography variant={MQmd ? "h6" : "h5"} color="#fff" gutterBottom>
           POST COMPLETION
         </Typography>
-        <Typography variant="body1" color="#fff" gutterBottom>
+        <Typography
+          variant={MQmd ? "body2" : "body1"}
+          color="#fff"
+          gutterBottom
+        >
           customers who used are services will be prioritized.
         </Typography>
       </Box>
@@ -135,10 +167,14 @@ const Whyus = () => {
             </g>
           </motion.svg>
         </Box>
-        <Typography variant="h5" color="#fff" gutterBottom>
+        <Typography variant={MQmd ? "h6" : "h5"} color="#fff" gutterBottom>
           MEETING DEADLINES
         </Typography>
-        <Typography variant="body1" color="#fff" gutterBottom>
+        <Typography
+          variant={MQmd ? "body2" : "body1"}
+          color="#fff"
+          gutterBottom
+        >
           customers are assured that sticking to a timetable is a must.
         </Typography>
       </Box>

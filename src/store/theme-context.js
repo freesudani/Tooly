@@ -12,9 +12,18 @@ const theme = createTheme({
       dark: "#424242",
       contrastText: "#fff",
     },
-  },
-  typography: {
-    fontFamily: "Karla, sans-serif",
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 600,
+        md: 900,
+        lg: 1200,
+        xl: 1536,
+      },
+    },
+    typography: {
+      fontFamily: "Karla, sans-serif",
+    },
   },
 });
 

@@ -11,6 +11,7 @@ import {
 import makeStyles from "@mui/styles/makeStyles/makeStyles";
 import { motion } from "framer-motion";
 import { logoVariant } from "../animations/Variants";
+import { useTheme, useMediaQuery } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -26,6 +27,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Navbar = () => {
   const classes = useStyles();
+  const theme = useTheme();
+  const MQsm = useMediaQuery(theme.breakpoints.down("sm")); //600px
   return (
     <Box>
       <AppBar position="static">
@@ -52,9 +55,11 @@ const Navbar = () => {
             </motion.svg>
             <Typography variant="h4">Tooly</Typography>
           </IconButton>
-          <Typography variant="h5" style={{ marginTop: "1rem" }}>
-            Call Us : 827-1634-543
-          </Typography>
+          {!MQsm && (
+            <Typography variant="h5" style={{ marginTop: "1rem" }}>
+              Call Us : 827-1634-543
+            </Typography>
+          )}
           <Button variant="contained" disableElevation>
             <Typography variant="body1" className={classes.mycart}>
               My Cart

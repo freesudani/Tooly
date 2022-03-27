@@ -3,6 +3,7 @@ import { Box, IconButton, Typography, Grid, Button } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles/makeStyles";
 import { tickVariant } from "../animations/Variants";
 import { motion } from "framer-motion";
+import { useTheme, useMediaQuery } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
   services: {
@@ -10,6 +11,12 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "3rem",
     paddingBottom: "3rem",
     textAlign: "center",
+    [theme.breakpoints.down("md")]: {
+      height: "70vh",
+    },
+    [theme.breakpoints.down("sm")]: {
+      height: "95vh",
+    },
   },
   submit: {
     marginTop: "2.5rem",
@@ -18,6 +25,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Services = () => {
   const classes = useStyles();
+  const theme = useTheme();
+  const MQmd = useMediaQuery(theme.breakpoints.down("md")); //900px
   const [button1, setButton1] = useState(false);
   const [button2, setButton2] = useState(false);
   const [button3, setButton3] = useState(false);
@@ -41,7 +50,7 @@ const Services = () => {
   return (
     <Box className={classes.services}>
       <Grid container xs={12} spacing={3}>
-        <Grid item xs={4}>
+        <Grid item xs={6} sm={4}>
           <IconButton aria-label="delete" onClick={button1ClickedHandler}>
             {button1 && (
               <motion.svg
@@ -77,7 +86,7 @@ const Services = () => {
           </IconButton>
           <Typography>Installing Survillence Camera</Typography>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6} sm={4}>
           <IconButton onClick={button2ClickedHandler}>
             {button2 && (
               <motion.svg
@@ -115,7 +124,7 @@ const Services = () => {
           </IconButton>
           <Typography>Electrician</Typography>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6} sm={4}>
           <IconButton onClick={button3ClickedHandler}>
             {button3 && (
               <motion.svg
@@ -151,7 +160,7 @@ const Services = () => {
           </IconButton>
           <Typography>Painter</Typography>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6} sm={4}>
           <IconButton onClick={button4ClickedHandler}>
             {button4 && (
               <motion.svg
@@ -191,7 +200,7 @@ const Services = () => {
           </IconButton>
           <Typography>Plumber</Typography>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6} sm={4}>
           <IconButton onClick={button5ClickedHandler}>
             {button5 && (
               <motion.svg
@@ -227,7 +236,7 @@ const Services = () => {
           </IconButton>
           <Typography>WaterProof</Typography>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6} sm={4}>
           <IconButton onClick={button6ClickedHandler}>
             {button6 && (
               <motion.svg
