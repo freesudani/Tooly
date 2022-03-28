@@ -12,6 +12,7 @@ import makeStyles from "@mui/styles/makeStyles/makeStyles";
 import { motion } from "framer-motion";
 import { logoVariant } from "../animations/Variants";
 import { useTheme, useMediaQuery } from "@mui/material";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -25,10 +26,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const cartQuantity = useSelector((state) => state.cart.totalQuantity);
+
   const classes = useStyles();
   const theme = useTheme();
   const MQsm = useMediaQuery(theme.breakpoints.down("sm")); //600px
+
   return (
     <Box>
       <AppBar position="static">
@@ -60,11 +64,15 @@ const Navbar = () => {
               Call Us : 827-1634-543
             </Typography>
           )}
-          <Button variant="contained" disableElevation>
+          <Button
+            variant="contained"
+            disableElevation
+            onClick={props.handleOpen}
+          >
             <Typography variant="body1" className={classes.mycart}>
-              My Cart
+              GET QUOTE
             </Typography>
-            <Badge badgeContent={4} color="error">
+            <Badge badgeContent={cartQuantity} color="error">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="24px"

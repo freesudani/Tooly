@@ -3,7 +3,8 @@ import { Box, IconButton, Typography, Grid, Button } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles/makeStyles";
 import { tickVariant } from "../animations/Variants";
 import { motion } from "framer-motion";
-import { useTheme, useMediaQuery } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../store/service-slice";
 
 const useStyles = makeStyles((theme) => ({
   services: {
@@ -25,8 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Services = () => {
   const classes = useStyles();
-  const theme = useTheme();
-  const MQmd = useMediaQuery(theme.breakpoints.down("md")); //900px
+  const dispatch = useDispatch();
   const [button1, setButton1] = useState(false);
   const [button2, setButton2] = useState(false);
   const [button3, setButton3] = useState(false);
@@ -34,24 +34,85 @@ const Services = () => {
   const [button5, setButton5] = useState(false);
   const [button6, setButton6] = useState(false);
 
-  const button1ClickedHandler = () =>
+  const button1ClickedHandler = () => {
     setButton1((currentState) => !currentState);
-  const button2ClickedHandler = () =>
+    dispatch(
+      cartActions.addItemToCart({
+        id: 1,
+        title: "Installing Survillence Camera",
+        price: 3400,
+      })
+    );
+  };
+  const button2ClickedHandler = () => {
     setButton2((currentState) => !currentState);
-  const button3ClickedHandler = () =>
+    dispatch(
+      cartActions.addItemToCart({
+        id: 2,
+        title: "Electrician",
+        price: 600,
+      })
+    );
+  };
+  const button3ClickedHandler = () => {
     setButton3((currentState) => !currentState);
-  const button4ClickedHandler = () =>
+    dispatch(
+      cartActions.addItemToCart({
+        id: 3,
+        title: "Painter",
+        price: 450,
+      })
+    );
+  };
+  const button4ClickedHandler = () => {
     setButton4((currentState) => !currentState);
-  const button5ClickedHandler = () =>
+    dispatch(
+      cartActions.addItemToCart({
+        id: 4,
+        title: "Plumber",
+        price: 400,
+      })
+    );
+  };
+  const button5ClickedHandler = () => {
     setButton5((currentState) => !currentState);
-  const button6ClickedHandler = () =>
+    dispatch(
+      cartActions.addItemToCart({
+        id: 5,
+        title: "WaterProof",
+        price: 700,
+      })
+    );
+  };
+  const button6ClickedHandler = () => {
     setButton6((currentState) => !currentState);
+    dispatch(
+      cartActions.addItemToCart({
+        id: 6,
+        title: "Handyman",
+        price: 230,
+      })
+    );
+  };
 
+  const clearHandler = () => {
+    setButton1(false);
+    setButton2(false);
+    setButton3(false);
+    setButton4(false);
+    setButton5(false);
+    setButton6(false);
+    dispatch(cartActions.clearCart);
+  };
   return (
     <Box className={classes.services}>
       <Grid container xs={12} spacing={3}>
         <Grid item xs={6} sm={4}>
-          <IconButton aria-label="delete" onClick={button1ClickedHandler}>
+          <IconButton
+            aria-label="delete"
+            onClick={button1ClickedHandler}
+            disabled={button1 && true}
+          >
             {button1 && (
               <motion.svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +148,10 @@ const Services = () => {
           <Typography>Installing Survillence Camera</Typography>
         </Grid>
         <Grid item xs={6} sm={4}>
-          <IconButton onClick={button2ClickedHandler}>
+          <IconButton
+            onClick={button2ClickedHandler}
+            disabled={button2 && true}
+          >
             {button2 && (
               <motion.svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +189,10 @@ const Services = () => {
           <Typography>Electrician</Typography>
         </Grid>
         <Grid item xs={6} sm={4}>
-          <IconButton onClick={button3ClickedHandler}>
+          <IconButton
+            onClick={button3ClickedHandler}
+            disabled={button3 && true}
+          >
             {button3 && (
               <motion.svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -161,7 +228,10 @@ const Services = () => {
           <Typography>Painter</Typography>
         </Grid>
         <Grid item xs={6} sm={4}>
-          <IconButton onClick={button4ClickedHandler}>
+          <IconButton
+            onClick={button4ClickedHandler}
+            disabled={button4 && true}
+          >
             {button4 && (
               <motion.svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -201,7 +271,10 @@ const Services = () => {
           <Typography>Plumber</Typography>
         </Grid>
         <Grid item xs={6} sm={4}>
-          <IconButton onClick={button5ClickedHandler}>
+          <IconButton
+            onClick={button5ClickedHandler}
+            disabled={button5 && true}
+          >
             {button5 && (
               <motion.svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -237,7 +310,10 @@ const Services = () => {
           <Typography>WaterProof</Typography>
         </Grid>
         <Grid item xs={6} sm={4}>
-          <IconButton onClick={button6ClickedHandler}>
+          <IconButton
+            onClick={button6ClickedHandler}
+            disabled={button6 && true}
+          >
             {button6 && (
               <motion.svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -274,10 +350,23 @@ const Services = () => {
           </IconButton>
           <Typography>Handyman</Typography>
         </Grid>
-        <Grid xs={12}>
-          <Button variant="contained" size="large" className={classes.submit}>
-            Add to Cart
-          </Button>
+        <Grid
+          container
+          xs={12}
+          spacing={1}
+          justifyContent="center"
+          alignContent="center"
+        >
+          <Grid item xs={2}>
+            <Button
+              variant="contained"
+              size="large"
+              className={classes.submit}
+              onClick={clearHandler}
+            >
+              Clear
+            </Button>
+          </Grid>
         </Grid>
       </Grid>
     </Box>
