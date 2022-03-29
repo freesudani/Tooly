@@ -19,9 +19,8 @@ const cartSlice = createSlice({
     },
 
     clearCart(state) {
-      const newArray = state.qoutations.splice(0, state.qoutations.length);
-      state.qoutations = newArray;
-      state.totalQuantity = state.qoutations.length;
+      state.qoutations.length = 0;
+      state.totalQuantity = 0;
     },
   },
 });

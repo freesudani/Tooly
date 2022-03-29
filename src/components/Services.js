@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Box, IconButton, Typography, Grid, Button } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles/makeStyles";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../store/service-slice";
 import { tickVariant } from "../animations/Variants";
 import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
-import { cartActions } from "../store/service-slice";
 
 const useStyles = makeStyles((theme) => ({
   services: {
@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 const Services = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const itemsList = useSelector((state) => state.cart.qoutations);
   const [button1, setButton1] = useState(false);
   const [button2, setButton2] = useState(false);
   const [button3, setButton3] = useState(false);
@@ -102,7 +103,7 @@ const Services = () => {
     setButton4(false);
     setButton5(false);
     setButton6(false);
-    dispatch(cartActions.clearCart);
+    dispatch(cartActions.clearCart(itemsList));
   };
   return (
     <Box className={classes.services}>

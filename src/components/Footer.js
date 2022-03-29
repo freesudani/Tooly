@@ -3,7 +3,7 @@ import { Typography, Box, AppBar, Toolbar, IconButton } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles/makeStyles";
 import { useTheme, useMediaQuery } from "@mui/material";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   toolbar: {
     width: "100vw",
     display: "flex",
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   mycart: {
     marginRight: "0.5rem",
   },
-}));
+});
 
 const Footer = () => {
   const classes = useStyles();

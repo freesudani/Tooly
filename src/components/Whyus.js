@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles/makeStyles";
-import { motion } from "framer-motion";
 import { useTheme, useMediaQuery } from "@mui/material";
+import { motion } from "framer-motion";
 
 const useStyles = makeStyles((theme) => ({
   whyus: {

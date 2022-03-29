@@ -9,12 +9,12 @@ import {
   Badge,
 } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles/makeStyles";
-import { motion } from "framer-motion";
-import { logoVariant } from "../animations/Variants";
 import { useTheme, useMediaQuery } from "@mui/material";
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
+import { logoVariant } from "../animations/Variants";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   toolbar: {
     width: "100vw",
     display: "flex",
@@ -24,12 +24,11 @@ const useStyles = makeStyles((theme) => ({
   mycart: {
     marginRight: "0.5rem",
   },
-}));
+});
 
 const Navbar = (props) => {
-  const cartQuantity = useSelector((state) => state.cart.totalQuantity);
-
   const classes = useStyles();
+  const cartQuantity = useSelector((state) => state.cart.totalQuantity);
   const theme = useTheme();
   const MQsm = useMediaQuery(theme.breakpoints.down("sm")); //600px
 

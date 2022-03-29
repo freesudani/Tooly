@@ -1,14 +1,17 @@
 import React from "react";
-import Backdrop from "@mui/material/Backdrop";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
-import Fade from "@mui/material/Fade";
-import Typography from "@mui/material/Typography";
+import {
+  Box,
+  Modal,
+  Fade,
+  Typography,
+  Button,
+  Divider,
+  Backdrop,
+} from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles/makeStyles";
-import { useSelector } from "react-redux";
-import { Button, Divider } from "@mui/material";
-import { v4 as uuidv4 } from "uuid";
 import { useTheme, useMediaQuery } from "@mui/material";
+import { useSelector } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 
 const useStyles = makeStyles((theme) => ({
   style: {

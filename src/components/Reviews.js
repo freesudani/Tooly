@@ -1,9 +1,8 @@
 import React from "react";
-import { Box } from "@mui/system";
+import { Rating, Typography, Box } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles/makeStyles";
-import reviewbg from "../images/jon-tyson-vVSleEYPSGY-unsplash.jpg";
-import { Rating, Typography } from "@mui/material";
 import { useTheme, useMediaQuery } from "@mui/material";
+import reviewbg from "../images/jon-tyson-vVSleEYPSGY-unsplash.jpg";
 import P1img from "../images/28.jpg";
 import P2img from "../images/68.jpg";
 import P3img from "../images/94.jpg";

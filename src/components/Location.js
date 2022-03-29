@@ -1,9 +1,9 @@
 import React from "react";
 import { Typography, Box } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles/makeStyles";
-import locationbg from "../images/barn-images-t5YUoHW6zRo-unsplash.jpg";
 import { useTheme, useMediaQuery } from "@mui/material";
 import map from "../images/map.png";
+import locationbg from "../images/barn-images-t5YUoHW6zRo-unsplash.jpg";
 
 const useStyles = makeStyles((theme) => ({
   location: {
@@ -24,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
       padding: "1rem",
     },
   },
-
   text: {
     width: "30vw",
     hegith: "50vw",

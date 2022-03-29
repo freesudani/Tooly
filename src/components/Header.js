@@ -1,9 +1,9 @@
 import React from "react";
 import { Typography, Box, Divider } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles/makeStyles";
+import { useTheme, useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 import { lineVariant } from "../animations/Variants";
-import { useTheme, useMediaQuery } from "@mui/material";
 import headerbg from "../images/jeshoots-com-VdOO4_HFTWM-unsplash.jpg";
 
 const useStyles = makeStyles((theme) => ({

@@ -9,7 +9,7 @@ import Reviews from "./components/Reviews";
 import Footer from "./components/Footer";
 import Qoutation from "./components/Qoutation";
 
-function App() {
+const App = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -27,6 +27,6 @@ function App() {
       <Qoutation open={open} handleClose={handleClose} />
     </Box>
   );
-}
+};
 
 export default App;
